@@ -45,35 +45,24 @@ tennan_website/
 - MySQL server
 - VS Code or any text editor
 
-### Installation Steps
-1. Clone this repository
+## How to Access the Web App
+
+1. Open a terminal and navigate to the project root folder:
+
 2. Install dependencies:
    ```
    npm install
    ```
-3. Start the backend server:
+3. Start the server:
    ```
    node server.js
    ```
-4. Open `index.html` or any page in your browser (or use Live Server for hot reload)
-
-## Setup Instructions
-
-1. Install dependencies:
-   ```sh
-   npm install
+4. Open your web browser and go to:
    ```
-2. Start the server:
-   ```sh
-   node server.js
+   http://localhost:3000
    ```
-3. login credentials:
-   - normal user:
-      Email: john.smith@example.com
-      Password: Password123
-   - administrator:
-      Email: manager@example.com
-      Password: managerpass
+
+This will load the home page of the Milky Shaky Drinks web app. You can use all features from your browser while the server is running.
 
 
 ## Email Confirmation (Formspree)
@@ -130,6 +119,6 @@ tennan_website/
 - Try submitting invalid, missing, or duplicate data to test robustness
 - Permission errors and authentication are handled with clear messages
 
-## License
 
-This project is open source and available for personal and commercial use.
+
+
