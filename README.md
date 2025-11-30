@@ -1,6 +1,6 @@
 # Tennan Milkshake Ordering Website
 
-A full-stack web application for ordering milkshakes, managing users, and generating audit and sales reports. Built with Node.js, Express, MySQL, and a modern HTML/CSS/JavaScript frontend.
+A full-stack web application for ordering milkshakes, managing users, and generating audit and sales reports. Built with Node.js, Express, and a modern HTML/CSS/JavaScript frontend. MySQL is optional for persistent storage, but the app can run with in-memory data for demo purposes.
 
 ## Project Structure
 
@@ -8,22 +8,28 @@ A full-stack web application for ordering milkshakes, managing users, and genera
 tennan_website/
 ├── index.html                # Main landing page
 ├── package.json              # Node.js dependencies
+├── package-lock.json         # Dependency lock file
 ├── server.js                 # Express backend server
-├── seed-users.js             # User seeding script
-├── elements/                 # Custom HTML elements
+├── .env                      # Environment variables
+├── .gitignore                # Git ignore rules
 ├── javascript/               # Frontend JS files
 │   ├── lookup.js
 │   ├── order-submission.js
+│   ├── reports.js
 │   ├── script.js
 │   └── signin-signup.js
 ├── pages/                    # HTML pages
 │   ├── home.html
 │   ├── lookup.html
+│   └── reports.html
 ├── styles/                   # CSS files
 │   ├── lookup.css
+│   ├── reports.css
 │   ├── signin-signup.css
-│   └── styles.css
-└── README.md                 # This file
+│   ├── styles.css
+│   └── toast-spinner.css
+├── node_modules/             # Installed dependencies (ignored)
+├── README.md                 # This file
 ```
 
 ## Features
@@ -42,7 +48,7 @@ tennan_website/
 
 ### Prerequisites
 - Node.js (v16+ recommended)
-- MySQL server
+- MySQL server (optional)
 - VS Code or any text editor
 
 ## How to Access the Web App
