@@ -1,0 +1,181 @@
+/* Lookup page styles */
+.lookup-container {
+	padding: 2rem 1rem;
+}
+
+.lookup-controls {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+#lookup-search {
+	width: 100%;
+	padding: 0.75rem 1rem;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	font-size: 1rem;
+}
+
+.lookup-tabs {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.tab {
+	padding: 0.5rem 0.9rem;
+	border: 1px solid #ddd;
+	background: #fff;
+	color: #333;
+	border-radius: 999px;
+	cursor: pointer;
+}
+
+.tab.active {
+	background: #333;
+	color: #fff;
+	border-color: #333;
+}
+
+.tab-panel {
+	margin-top: 0.5rem;
+}
+
+.card-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1.5rem;
+	margin: 2rem 0;
+}
+
+.card {
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+	padding: 1.5rem 1.2rem;
+	transition: box-shadow 0.2s, transform 0.2s;
+	position: relative;
+}
+
+.card:hover, .card:focus {
+	box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 3px #0078d433;
+	transform: translateY(-4px) scale(1.04);
+	outline: 2px solid #0078d4;
+	filter: brightness(1.03);
+}
+
+.card-title {
+	margin: 0 0 0.5rem;
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+.card-time {
+	margin: 0 0 0.5rem;
+	font-size: 0.9rem;
+	color: #888;
+}
+
+.card-desc {
+	margin: 0;
+	font-size: 1rem;
+	color: #444;
+	margin-bottom: 1rem;
+}
+
+.card-actions {
+	display: flex;
+	gap: 0.7rem;
+}
+
+.btn-edit, .btn-delete, .btn-add, .btn-save, .btn-cancel {
+	background: #0078d4;
+	color: #fff;
+	border: none;
+	border-radius: 6px;
+	padding: 0.5rem 1.1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background 0.2s, box-shadow 0.2s;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.btn-edit:hover, .btn-save:hover {
+	background: #005fa3;
+}
+
+.btn-delete {
+	background: #d32f2f;
+}
+
+.btn-delete:hover {
+	background: #b71c1c;
+}
+
+.btn-add {
+	background: #43a047;
+}
+
+.btn-add:hover {
+	background: #2e7031;
+}
+
+.btn-cancel {
+	background: #888;
+}
+
+.btn-cancel:hover {
+	background: #555;
+}
+
+.add-input, .edit-input {
+	width: 90%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	margin-bottom: 0.7rem;
+	transition: border 0.2s;
+}
+
+.add-input:focus, .edit-input:focus {
+	border-color: #0078d4;
+	outline: none;
+}
+
+.card-add {
+	background: #f5faff;
+	border: 2px dashed #0078d4;
+	color: #0078d4;
+}
+
+.card-add .card-title {
+	color: #0078d4;
+}
+
+@media (min-width: 768px) {
+	.lookup-controls {
+		grid-template-columns: 1fr auto;
+	}
+}
+
+@media (max-width: 600px) {
+	.card-grid {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+	.card {
+		padding: 1rem 0.5rem;
+		font-size: 0.97rem;
+	}
+	.card-title {
+		font-size: 1.1rem;
+	}
+	.card-actions {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+}

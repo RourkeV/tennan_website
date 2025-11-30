@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Milky Shaky Drinks - Your go-to place for delicious milkshakes">
+    <title>Milky Shaky Drinks - Home</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/toast-spinner.css">
+</head>
+
+<body class="home-page">
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-img" id="mainMilkshakeIcon">🥤</span>
+                <span class="logo-title">Milky Shaky Drinks</span>
+            </div>
+            <ul class="nav-list">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="lookup.html" class="nav-link lookup-btn">Lookup</a></li>
+                <li><a href="reports.html" class="nav-link reports-btn">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        <section class="card">
+            <h2 class="card-title">Welcome to Milky Shaky Drinks</h2>
+            <h3 class="card-subtitle">Your go-to place for delicious milkshakes</h3>
+            
+            <form class="order-form">
+                <label for="milkshakeQuantity">How many milkshakes would you like?</label>
+                <input id="milkshakeQuantity" type="number" min="1" value="1">
+                <button id="createOrderBtn" class="btn" type="button">Create order(s)</button>
+            </form>
+            
+            <div id="orderFormsContainer"></div>
+            
+            <div class="summary-section">
+                <p><strong>Subtotal:</strong> <span id="total">R 0</span></p>
+                <p><strong>Discount:</strong> <span id="discount">R 0 (0%)</span></p>
+                <p><strong>Tax (15%):</strong> <span id="tax">R 0</span></p>
+                <p><strong>Grand Total:</strong> <span id="grandTotal">R 0</span></p>
+                <button id="payNowBtn" class="btn" type="button">Pay Now</button>
+                <p>Your total milkshakes ordered: <span id="userOrderAmount">0</span></p>
+            </div>
+        </section>
+
+        <!-- Payment Modal -->
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closePaymentModal">&times;</span>
+                <h2 class="modal-title">Mock Payment Portal</h2>
+                <form id="paymentForm">
+                    <label for="cardName">Cardholder Name:</label>
+                    <input type="text" id="cardName" name="cardName" required>
+                    <label for="cardNumber">Card Number:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" required>
+                    <button type="submit" class="btn">Confirm Payment</button>
+                </form>
+                <div id="paymentStatus"></div>
+            </div>
+        </div>
+
+
+        <div id="global-spinner" class="hidden"><div class="spinner"></div></div>
+        <div id="toast" class="toast"></div>
+    </main>
+
+    <footer class="footer">
+        <span>© 2025 Milky Shaky Drinks. All rights reserved.</span>
+    </footer>
+
+    <script src="../javascript/script.js"></script>
+    <script>
+      function createMilkshakeRain() {
+        for (let i = 0; i < 30; i++) {
+          const shake = document.createElement('span');
+          shake.textContent = '🥤';
+          shake.style.position = 'fixed';
+          shake.style.left = Math.random() * 100 + 'vw';
+          shake.style.top = '-3em';
+          shake.style.fontSize = (1 + Math.random() * 1.5) + 'em';
+          shake.style.zIndex = 9999;
+          shake.style.pointerEvents = 'none';
+          document.body.appendChild(shake);
+          let speed = 2 + Math.random() * 3;
+          let angle = (Math.random() - 0.5) * 2;
+          let top = -3;
+          let left = parseFloat(shake.style.left);
+          function fall() {
+            top += speed * 0.5;
+            left += angle;
+            shake.style.top = top + 'em';
+            shake.style.left = left + 'vw';
+            if (top < 100) {
+              requestAnimationFrame(fall);
+            } else {
+              shake.remove();
+            }
+          }
+          fall();
+        }
+      }
+      document.getElementById('mainMilkshakeIcon').addEventListener('dblclick', function() {
+        createMilkshakeRain();
+        const msg = document.getElementById('eastereggMsg');
+        if (msg) {
+          msg.textContent = 'Milkshake rain!';
+          msg.style.display = 'block';
+          setTimeout(() => { msg.style.display = 'none'; }, 2000);
+        }
+      });
+    </script>
+</body>
+</html>
+

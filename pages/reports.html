@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/reports.css">
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-img">🥤</span>
+        <span class="logo-title">Milky Shaky Drinks</span>
+      </div>
+      <ul class="nav-list">
+        <li><a href="home.html" class="nav-link">Home</a></li>
+        <li><a href="lookup.html" class="nav-link lookup-btn">Lookup</a></li>
+        <li><a href="reports.html" class="nav-link reports-btn active">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+    <link rel="stylesheet" href="../styles/toast-spinner.css">
+    <div id="global-spinner" class="hidden"><div class="spinner"></div></div>
+    <div id="toast" class="toast"></div>
+    <main>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="summary-tab">Summary</button>
+        <button class="tab-btn" data-tab="orders-tab">Orders</button>
+        <button class="tab-btn" data-tab="categories-tab">Top Categories</button>
+        <button class="tab-btn" data-tab="audit-tab">Audit Log</button>
+      </div>
+      <section id="summary-tab" class="tab-content active">
+        <h2>Summary</h2>
+        <table id="summary-table" class="summary-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody id="summary-table-body">
+            <tr><td>Orders Today</td><td>Loading...</td></tr>
+            <tr><td>Total Orders</td><td>Loading...</td></tr>
+            <tr><td>Top Flavour</td><td>Loading...</td></tr>
+            <tr><td>Top Topping</td><td>Loading...</td></tr>
+            <tr><td>Top Thickness</td><td>Loading...</td></tr>
+          </tbody>
+        </table>
+        <div class="charts-container">
+          <div style="flex:1;min-width:300px;">
+            <canvas id="ordersBarChart" width="600" height="300"></canvas>
+          </div>
+          <div style="flex:1;min-width:300px;">
+            <canvas id="ordersMonthBarChart" width="600" height="300"></canvas>
+          </div>
+        </div>
+      </section>
+      <section id="orders-tab" class="tab-content hidden-tab">
+        <h2>Milkshake orders</h2>
+        <div id="user-orders-content">Loading...</div>
+      </section>
+      <section id="categories-tab" class="tab-content hidden-tab">
+        <h2>Top Categories</h2>
+        <div id="top-categories-content">Loading...</div>
+      </section>
+      <section id="audit-tab" class="tab-content hidden-tab">
+        <h2>Audit Log</h2>
+        <div id="audit-log-content">Loading...</div>
+      </section>
+    </main>
+    <script src="../javascript/reports.js"></script>
+</body>

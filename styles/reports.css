@@ -1,0 +1,161 @@
+/* Reports Page Tabs Styling */
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 1.5rem 0;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: #f5f6fa;
+  color: #232946;
+  font-weight: 500;
+  border: 1px solid #dbeafe;
+  border-radius: 0.5em;
+  padding: 0.6em 1.5em;
+  font-size: 1rem;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  outline: none;
+}
+.tab-btn:not(.active):hover {
+  background: #e0e7ff;
+  color: #232946;
+  border-color: #6a11cb;
+}
+.tab-btn.active {
+  background: #fff;
+  color: #6a11cb;
+  border: 2px solid #6a11cb;
+}
+.hidden-tab {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Top Categories Table Styling */
+.top-categories-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  table-layout: fixed;
+}
+.top-categories-table th, .top-categories-table td {
+  border: 1px solid #ccc;
+  padding: 0.75em;
+  text-align: center;
+  width: 33%;
+  word-break: break-word;
+}
+.top-categories-table th {
+  background: #f5f5f5;
+  font-weight: bold;
+}
+.top-categories-table tr:nth-child(even) {
+  background: #fafafa;
+}
+
+/* Summary Table Styling */
+.summary-table {
+  width: 95%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5em auto 2em auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #23294611;
+  overflow: hidden;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  max-width: 900px;
+}
+.summary-table th, .summary-table td {
+  padding: 0.7em 1em;
+  font-size: 1.08rem;
+  border-bottom: 1px solid #e0e7ff;
+  text-align: center;
+}
+.summary-table th {
+  padding: 0.7em 1em;
+  text-align: left;
+  background: #f5f5f5;
+  font-weight: 700;
+  color: #232946;
+}
+.summary-table td {
+  padding: 0.7em 1em;
+  text-align: right;
+  background: #fff;
+  color: #232946;
+}
+.summary-table td:last-child {
+  text-align: right;
+  font-weight: 500;
+}
+.summary-table tr:last-child td {
+  border-bottom: none;
+}
+
+#summary-tab h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.2em;
+}
+
+#orders-tab h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+#user-orders-content {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2em;
+  margin: 0 auto 2em auto;
+  max-width: 900px;
+  min-height: 120px;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.charts-container {
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 2em auto;
+}
+
+/* User Order Blocks */
+.user-order {
+  background: #f7f9fc;
+  border: 1px solid #e3e7ee;
+  border-radius: 8px;
+  margin-bottom: 1.2em;
+  padding: 1.2em 1.5em;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.user-order-header {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 0.7em;
+  color: #2a3a4d;
+}
+.user-order-list {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.user-order-list li {
+  margin-bottom: 0.4em;
+  font-size: 1rem;
+  color: #333;
+}

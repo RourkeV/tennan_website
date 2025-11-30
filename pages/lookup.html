@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lookup</title>
+  <link rel="stylesheet" href="../styles/styles.css"/>
+  <link rel="stylesheet" href="../styles/lookup.css"/>
+</head>
+<body>
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="logo">
+        <span class="logo-img">🥤</span>
+        <span class="logo-title">Milky Shaky Drinks</span>
+      </div>
+      <ul class="nav-list">
+        <li><a href="home.html" class="nav-link">Home</a></li>
+        <li><a href="lookup.html" class="nav-link lookup-btn active">Lookup</a></li>
+        <li><a href="reports.html" class="nav-link reports-btn">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="lookup-container">
+    <div class="lookup-controls">
+      <div class="lookup-tabs" role="tablist" aria-label="Milkshake categories">
+        <button class="tab" id="tab-flavours" role="tab" aria-controls="panel-flavours">Flavours</button>
+        <button class="tab" id="tab-toppings" role="tab" aria-controls="panel-toppings">Toppings</button>
+        <button class="tab" id="tab-thickness" role="tab" aria-controls="panel-thickness">Thickness</button>
+      </div>
+    </div>
+
+    <section id="panel-flavours" class="tab-panel" role="tabpanel" hidden>
+      <div id="flavours-list" class="card-grid"></div>
+    </section>
+
+    <section id="panel-toppings" class="tab-panel" role="tabpanel" hidden>
+      <div id="toppings-list" class="card-grid"></div>
+    </section>
+
+    <section id="panel-thickness" class="tab-panel" role="tabpanel" hidden>
+      <div id="thickness-list" class="card-grid"></div>
+    </section>
+  </main>
+
+
+  <link rel="stylesheet" href="../styles/toast-spinner.css">
+  <div id="global-spinner" class="hidden"><div class="spinner"></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="../javascript/lookup.js"></script>
+</body>
+</html>
