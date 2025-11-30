@@ -78,21 +78,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     function injectBasicOrderUI() {
         const wrapper = document.createElement('div');
         wrapper.innerHTML = `
-          <div>
-            Your total milkshakes ordered: <span id="userOrderAmount">0</span>
-          </div>
-          <div style="margin-top:12px;">
-            <input id="milkshakeQuantity" type="number" min="1" value="1" />
-            <button id="createOrderBtn">Create Order Forms</button>
-          </div>
-          <div id="orderFormsContainer" style="margin-top:12px;"></div>
-          <div style="margin-top:12px;">
-            <p><strong>Subtotal:</strong> <span id="total">R 0</span></p>
-            <p><strong>Discount:</strong> <span id="discount">R 0 (0%)</span></p>
-            <p><strong>Tax (15%):</strong> <span id="tax">R 0</span></p>
-            <p><strong>Grand Total:</strong> <span id="grandTotal">R 0</span></p>
-          </div>
-          <button id="checkoutBtn">Checkout</button>
+            <div>
+                Your total milkshakes ordered: <span id="userOrderAmount">0</span>
+            </div>
+            <div style="margin-top:12px;">
+                <input id="milkshakeQuantity" type="number" min="1" value="1" />
+                <button id="createOrderBtn">Create Order Forms</button>
+            </div>
+            <div id="orderFormsContainer" style="margin-top:12px;"></div>
+            <div style="margin-top:12px;">
+                <p><strong>Subtotal:</strong> <span id="total">R 0</span></p>
+                <p><strong>Discount:</strong> <span id="discount">R 0 (0%)</span></p>
+                <p><strong>Tax (15%):</strong> <span id="tax">R 0</span></p>
+                <p><strong>Grand Total:</strong> <span id="grandTotal">R 0</span></p>
+            </div>
+            <button id="checkoutBtn">Checkout</button>
         `;
         document.body.appendChild(wrapper);
     }
@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             form.dataset.done = 'false';
             form.innerHTML = `
                 <div style="display:flex;justify-content:space-between;align-items:center;">
-                  <h4>Milkshake #${i}</h4>
-                  <button type="button" class="delete-btn">Delete</button>
+                    <h4>Milkshake #${i}</h4>
+                    <button type="button" class="delete-btn">Delete</button>
                 </div>
                 <label>Flavor:</label>
                 <select name="flavor">

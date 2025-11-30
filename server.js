@@ -1,7 +1,3 @@
-// ...existing code...
-
-// Place this after app and middleware initialization, with other API routes
-
 
 require('dotenv').config();
 const express = require('express');
@@ -15,10 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Configure mail transport (update with your SMTP details)
-// Removed Nodemailer setup
 
-// Simple GET endpoint to read all audit_log records (must be after app initialization)
+// Simple GET endpoint to read all audit_log records 
 app.get('/api/audit-log/all', async (req, res) => {
   try {
     const [rows] = await pool.query('SELECT * FROM audit_log ORDER BY timestamp DESC');
@@ -40,11 +34,11 @@ app.get('/api/audit/recent', authenticateUser, authorizeRole('manager'), async (
   const limit = parseInt(req.query.limit) || 25;
   try {
     const [rows] = await pool.query(
-      `SELECT a.timestamp, u.name AS user, a.action, a.table_name, a.field_name, a.old_value, a.new_value
-       FROM audit_log a
-       LEFT JOIN users u ON a.user_id = u.user_id
-       ORDER BY a.timestamp DESC
-       LIMIT ?`,
+        `SELECT a.timestamp, u.name AS user, a.action, a.table_name, a.field_name, a.old_value, a.new_value
+        FROM audit_log a
+        LEFT JOIN users u ON a.user_id = u.user_id
+        ORDER BY a.timestamp DESC
+        LIMIT ?`,
       [limit]
     );
     res.json({
@@ -346,7 +340,7 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
-// Payment endpoint (now correctly placed outside register route)
+// Payment endpoint
 app.post('/api/orders/:orderId/pay', authenticateUser, async (req, res) => {
   const { orderId } = req.params;
   const userId = req.authenticatedUserId;
@@ -599,10 +593,10 @@ app.post('/api/users/:userId/recalc-order-amount', async (req, res) => {
         const userId = req.params.userId;
         // Count all milkshakes across all orders for this user
         const [rows] = await pool.query(
-            `SELECT COALESCE(COUNT(m.milkshake_id), 0) AS total
-             FROM orders o
-             LEFT JOIN milkshakes m ON o.order_id = m.order_id
-             WHERE o.user_id = ?`,
+              `SELECT COALESCE(COUNT(m.milkshake_id), 0) AS total
+              FROM orders o
+              LEFT JOIN milkshakes m ON o.order_id = m.order_id
+              WHERE o.user_id = ?`,
             [userId]
         );
         const total = rows[0].total;
@@ -631,11 +625,11 @@ app.post('/api/users/:userId/recalc-order-amount', async (req, res) => {
 app.get('/api/users/:userId/orders', async (req, res) => {
     try {
         const [orders] = await pool.query(
-            `SELECT o.*, m.flavor, m.size, m.thickness, m.topping, m.price as milkshake_price
-             FROM orders o
-             LEFT JOIN milkshakes m ON o.order_id = m.order_id
-             WHERE o.user_id = ?
-             ORDER BY o.order_date DESC`,
+              `SELECT o.*, m.flavor, m.size, m.thickness, m.topping, m.price as milkshake_price
+              FROM orders o
+              LEFT JOIN milkshakes m ON o.order_id = m.order_id
+              WHERE o.user_id = ?
+              ORDER BY o.order_date DESC`,
             [req.params.userId]
         );
 
@@ -934,10 +928,10 @@ app.get('/api/audit-log', authenticateUser, authorizeRole('manager'), async (req
 app.get('/api/orders', async (req, res) => {
   try {
     const [orders] = await pool.query(
-      `SELECT o.order_id, o.order_date, o.total, o.subtotal, o.tax, o.status, u.name, u.email
-       FROM orders o
-       LEFT JOIN users u ON o.user_id = u.user_id
-       ORDER BY o.order_date DESC`
+        `SELECT o.order_id, o.order_date, o.total, o.subtotal, o.tax, o.status, u.name, u.email
+        FROM orders o
+        LEFT JOIN users u ON o.user_id = u.user_id
+        ORDER BY o.order_date DESC`
     );
     res.json({ success: true, orders });
   } catch (err) {
@@ -949,11 +943,11 @@ app.get('/api/orders', async (req, res) => {
 app.get('/api/milkshakes', async (req, res) => {
   try {
     const [milkshakes] = await pool.query(
-      `SELECT m.milkshake_id, m.order_id, m.flavor, m.size, m.thickness, m.topping, m.price, o.order_date, u.name AS user_name, u.email AS user_email
-       FROM milkshakes m
-       LEFT JOIN orders o ON m.order_id = o.order_id
-       LEFT JOIN users u ON o.user_id = u.user_id
-       ORDER BY m.milkshake_id DESC`
+        `SELECT m.milkshake_id, m.order_id, m.flavor, m.size, m.thickness, m.topping, m.price, o.order_date, u.name AS user_name, u.email AS user_email
+        FROM milkshakes m
+        LEFT JOIN orders o ON m.order_id = o.order_id
+        LEFT JOIN users u ON o.user_id = u.user_id
+        ORDER BY m.milkshake_id DESC`
     );
     res.json({ success: true, milkshakes });
   } catch (err) {
@@ -966,11 +960,11 @@ app.get('/api/reports/recent-orders', authenticateUser, authorizeRole('manager')
   try {
     // Get last 20 orders with user info
     const [orders] = await pool.query(
-      `SELECT o.order_id, o.order_date, o.total, u.name, u.email
-       FROM orders o
-       LEFT JOIN users u ON o.user_id = u.user_id
-       ORDER BY o.order_date DESC
-       LIMIT 20`
+        `SELECT o.order_id, o.order_date, o.total, u.name, u.email
+        FROM orders o
+        LEFT JOIN users u ON o.user_id = u.user_id
+        ORDER BY o.order_date DESC
+        LIMIT 20`
     );
 
     // For each order, get milkshakes
