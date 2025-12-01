@@ -377,7 +377,7 @@ app.post('/api/orders/:orderId/pay', authenticateUser, async (req, res) => {
     // Send confirmation via Formspree
     try {
       const userEmail = orders[0].email || req.user?.email;
-      await axios.post('https://formspree.io/f/{form_id}', {
+      await axios.post('https://formspree.io/f/xkgdrvzj', {
         Email: userEmail,
         message: `Dear ${orders[0].name},\nYour payment for order #${orderId} was successful.\nOrder Details:\n- Order ID: ${orderId}\n- Amount: ${orders[0].order_amount}\nThank you for your purchase!\nMilkyShake Team`
       });

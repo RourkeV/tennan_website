@@ -53,6 +53,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Hide Lookup and Reports links for non-managers
+    const userRole = localStorage.getItem('userRole');
+    if (userRole !== 'manager') {
+        document.querySelectorAll('.lookup-btn, .reports-btn').forEach(link => {
+            link.style.display = 'none';
+        });
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Website loaded successfully!');
     
